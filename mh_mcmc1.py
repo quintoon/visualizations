@@ -9,7 +9,7 @@ global sigma_proposal, times, y, y_err
 sigma_proposal = 2
 
 # generate some fake data
-times = np.linspace(0, 10, 10000)
+times = np.linspace(0, 10, 50000)
 m_true = (np.random.randint(1,10),np.random.randint(1,10),np.random.randint(1,10))
 y = m_true[0] * times**2 + m_true[1]*times + m_true[2] 
 y_err = 25
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     np.random.seed(10)
 
     m_initial_guess = (1,1,1)
-    num_steps = 10000
+    num_steps = 50000
 
     markov_chain = mh_mcmc(m_initial_guess=m_initial_guess, num_steps=num_steps)
     a_best = np.mean(markov_chain[:,0])
